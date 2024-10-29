@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color:#000;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .progress-container {
+            width: 100%;
+            background: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .progress-bar {
+            height: 20px;
+            width: 0;
+            background: #4CAF50;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+
+<h2>User Registration Form</h2>
+<form>
+    <label for="first-name">First Name:</label>
+    <input type="text" id="first-name" name="first-name" required>
+
+    <label for="last-name">Last Name:</label>
+    <input type="text" id="last-name" name="last-name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="confirm-password">Confirm Password:</label>
+    <input type="password" id="confirm-password" name="confirm-password" required>
+
+    <label>Gender:</label>
+    <label><input type="radio" name="gender" value="male" required> Male</label>
+    <label><input type="radio" name="gender" value="female"> Female</label>
+    <label><input type="radio" name="gender" value="other"> Other</label>
+
+    <label>Hobbies:</label>
+    <label><input type="checkbox" name="hobbies" value="reading"> Reading</label>
+    <label><input type="checkbox" name="hobbies" value="travelling"> Travelling</label>
+    <label><input type="checkbox" name="hobbies" value="gaming"> Gaming</label>
+    <label><input type="checkbox" name="hobbies" value="sports"> Sports</label>
+
+    <label for="source-of-income">Source of Income:</label>
+    <input type="text" id="source-of-income" name="source-of-income" required>
+
+    <label for="income">Income:</label>
+    <input type="number" id="income" name="income" min="0" max="1000000" required>
+    
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <label for="profile-picture">Upload Profile Picture:</label>
+    <input type="file" id="profile-picture" name="profile-picture" accept="image/*" required>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" min="1" max="100" required>
+
+    <label for="bio">Bio:</label>
+    <textarea id="bio" name="bio" rows="4" required></textarea>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    const incomeInput = document.getElementById('income');
+    const progressBar = document.getElementById('progress-bar');
+
+    incomeInput.addEventListener('input', function() {
+        const incomeValue = parseInt(incomeInput.value, 10);
+        const maxIncome = parseInt(incomeInput.max, 10);
+        const progressPercentage = (incomeValue / maxIncome) * 100;
+        progressBar.style.width = progressPercentage + '%';
+    });
+</script>
+
+</body>
+</html>
